@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask testes básicos</title>
+</head>
+<body>
+    <h1>CRUD Games</h1>
+    <form action="/criar" method="post">
+        <input type="text" name="nome" placeholder="Digite o nome do seu jogo" required>
+        <input type="submit" value="Inserir">
+    </form>
+    {% if games|length > 0: %}
+    <h2>Games:</h2>
+    <ul>
+        {% for game in games %}
+            <li>{{ game }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <hr>
+   <h2>Atualizar Games:</h2>
+    <form action="/alterar" method="post">
+        <input type="text" name="old_name" placeholder="Nome atual"
+        required>
+        <input type="text" name="new_name" placeholder="Novo nome"
+        required>
+        <input type="submit" value="Alterar">
+    </form>
+    <hr>
+    <h2>Apagar Game:</h2>
+    <form action="/apagar" method="post">
+        <input type="text" name="nome" placeholder="Nome do jogo"
+        required>
+        <input type="submit" value="Apagar">
+    </form>
+</body>
+</html>
