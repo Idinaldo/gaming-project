@@ -23,14 +23,14 @@ def update():
     old_name = request.form['old_name']
     new_name = request.form['new_name']
     #old_name_desen = request.form['nome antigo da desenvolvedora']
-    new_name_dev = request.form['Novo nome da desenvolvedora']
+    new_dev = request.form['new_dev']
+    new_desc = request.form['new_desc']
     for g in games:
         if g.getNome() == old_name:
             g.setNome(new_name)
-            g.setDev(new_name_dev)
-            return redirect('/')
-    else:
-        return "Jogo não encontrado"
+            g.setDev(new_dev)
+            g.setDesc(new_desc)
+    return redirect('/')
     #elif old_name_desen in games:
 
 @app.route('/apagar', methods=['POST']) # Rota /apagar
